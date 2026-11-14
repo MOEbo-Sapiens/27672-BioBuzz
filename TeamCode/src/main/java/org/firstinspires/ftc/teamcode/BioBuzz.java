@@ -21,12 +21,13 @@ public class BioBuzz extends LinearOpMode {
         // DcMotor flywheelMotor = hardwareMap.get(DcMotor.class, "flywheelMotor");
 
         /* -------------------- Get Servos -------------------- */
-        CRServo leftIntakeServo = hardwareMap.get(CRServo.class, "leftIntakeMotor");
-        CRServo rightIntakeServo = hardwareMap.get(CRServo.class, "rightIntakeMotor");
+        CRServo leftIntakeServo = hardwareMap.get(CRServo.class, "leftIntakeServo");
+        CRServo rightIntakeServo = hardwareMap.get(CRServo.class, "rightIntakeServo");
 
         /* -------------------- Reverse Direction for Motors/Servos -------------------- */
         frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        intakeMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         rightIntakeServo.setDirection(CRServo.Direction.REVERSE);
 
         waitForStart();
