@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.CRServo;
 
 @TeleOp(name="27672_BioBuzz")
-public class BioBuzz extends LinearOpMode {
+public class Main extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         /* -------------------- Get DC Motors -------------------- */
@@ -69,8 +69,8 @@ public class BioBuzz extends LinearOpMode {
                 intakeMotor.setPower(-1);
 
             } else {
-                leftIntakeServo.setPower(0);
-                rightIntakeServo.setPower(0);
+                //leftIntakeServo.setPower(0);
+                //rightIntakeServo.setPower(0);
                 intakeMotor.setPower(0);
 
             }
