@@ -18,11 +18,12 @@ public class Main extends LinearOpMode {
 
 
         DcMotor intakeMotor = hardwareMap.get(DcMotor.class, "intakeMotor");
-        // DcMotor flywheelMotor = hardwareMap.get(DcMotor.class, "flywheelMotor");
+        DcMotor flywheelMotor = hardwareMap.get(DcMotor.class, "flywheelMotor");
 
         /* -------------------- Get Servos -------------------- */
         CRServo leftIntakeServo = hardwareMap.get(CRServo.class, "leftIntakeServo");
         CRServo rightIntakeServo = hardwareMap.get(CRServo.class, "rightIntakeServo");
+        CRServo rampIntakeServo = hardwareMap.get(CRServo.class, "rampIntakeServo");
 
         /* -------------------- Reverse Direction for Motors/Servos -------------------- */
         frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -43,7 +44,7 @@ public class Main extends LinearOpMode {
             boolean left_bumper = gamepad1.left_bumper; // Intake
             boolean right_bumper = gamepad1.right_bumper; // Reverse Intake
 
-            // boolean right_trigger = gamepad1.right_trigger_pressed; // Shooting Functionality
+             boolean left_trigger = gamepad1.right_trigger_pressed; // Shooting Functionality
 
             /* -------------------- Robot Motion -------------------- */
             double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
@@ -69,20 +70,22 @@ public class Main extends LinearOpMode {
                 intakeMotor.setPower(-1);
 
             } else {
-                //leftIntakeServo.setPower(0);
-                //rightIntakeServo.setPower(0);
+                leftIntakeServo.setPower(0);
+                rightIntakeServo.setPower(0);
                 intakeMotor.setPower(0);
 
             }
 
-            /* -------------------- Shooting Mechanism -------------------- */
-            /* if (right_trigger) {
-                 flywheelMotor.setPower(1);
+            /* -------------------- Ramp Intake Mechanism -------------------- */
+            if (left_trigger) {
+                rampIntakeServo.setPower(1);
+                flywheelMotor.setPower(1);
 
-             } else {
-                 flywheelMotor.setPower(0);
+            } else {
+                rampIntakeServo.setPower(0);
+                flywheelMotor.setPower(0);
 
-             } */
+            }
         }
     }
 }
