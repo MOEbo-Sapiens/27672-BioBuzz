@@ -44,7 +44,7 @@ public class Main extends LinearOpMode {
             boolean left_bumper = gamepad1.left_bumper; // Intake
             boolean right_bumper = gamepad1.right_bumper; // Reverse Intake
 
-             boolean left_trigger = gamepad1.right_trigger_pressed; // Shooting Functionality
+             boolean right_trigger = gamepad1.right_trigger_pressed; // Shooting Functionality
 
             /* -------------------- Robot Motion -------------------- */
             double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
@@ -77,7 +77,7 @@ public class Main extends LinearOpMode {
             }
 
             /* -------------------- Ramp Intake Mechanism -------------------- */
-            if (left_trigger) {
+            if (right_trigger) {
                 rampIntakeServo.setPower(1);
                 flywheelMotor.setPower(1);
 
