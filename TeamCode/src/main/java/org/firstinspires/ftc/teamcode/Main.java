@@ -11,19 +11,19 @@ public class Main extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         /* -------------------- Get DC Motors -------------------- */
-        DcMotor frontLeftMotor = hardwareMap.get(DcMotor.class, "frontLeftMotor");
-        DcMotor backLeftMotor = hardwareMap.get(DcMotor.class, "backLeftMotor");
-        DcMotor frontRightMotor = hardwareMap.get(DcMotor.class, "frontRightMotor");
-        DcMotor backRightMotor = hardwareMap.get(DcMotor.class, "backRightMotor");
+        DcMotor frontLeftMotor = hardwareMap.get(DcMotor.class, "frontLeftMotor"); // CH Port 0
+        DcMotor backLeftMotor = hardwareMap.get(DcMotor.class, "backLeftMotor"); // CH Port 1
+        DcMotor frontRightMotor = hardwareMap.get(DcMotor.class, "frontRightMotor"); // CH Port 2
+        DcMotor backRightMotor = hardwareMap.get(DcMotor.class, "backRightMotor"); // CH Port 4
 
 
-        DcMotor intakeMotor = hardwareMap.get(DcMotor.class, "intakeMotor");
-        DcMotor flywheelMotor = hardwareMap.get(DcMotor.class, "flywheelMotor");
+        DcMotor intakeMotor = hardwareMap.get(DcMotor.class, "intakeMotor"); // EH Port 0
+        DcMotor flywheelMotor = hardwareMap.get(DcMotor.class, "flywheelMotor"); // EH Port 1
 
         /* -------------------- Get Servos -------------------- */
-        CRServo leftIntakeServo = hardwareMap.get(CRServo.class, "leftIntakeServo");
-        CRServo rightIntakeServo = hardwareMap.get(CRServo.class, "rightIntakeServo");
-        CRServo rampIntakeServo = hardwareMap.get(CRServo.class, "rampIntakeServo");
+        CRServo leftIntakeServo = hardwareMap.get(CRServo.class, "leftIntakeServo"); // CH Port 0
+        CRServo rightIntakeServo = hardwareMap.get(CRServo.class, "rightIntakeServo"); // CH Port 1
+        CRServo rampIntakeServo = hardwareMap.get(CRServo.class, "rampIntakeServo"); // CH Port 2
 
         /* -------------------- Reverse Direction for Motors/Servos -------------------- */
         frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
