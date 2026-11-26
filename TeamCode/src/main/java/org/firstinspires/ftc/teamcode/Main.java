@@ -14,7 +14,7 @@ public class Main extends LinearOpMode {
         DcMotor frontLeftMotor = hardwareMap.get(DcMotor.class, "frontLeftMotor"); // CH Port 0
         DcMotor backLeftMotor = hardwareMap.get(DcMotor.class, "backLeftMotor"); // CH Port 1
         DcMotor frontRightMotor = hardwareMap.get(DcMotor.class, "frontRightMotor"); // CH Port 2
-        DcMotor backRightMotor = hardwareMap.get(DcMotor.class, "backRightMotor"); // CH Port 4
+        DcMotor backRightMotor = hardwareMap.get(DcMotor.class, "backRightMotor"); // CH Port 3
 
 
         DcMotor intakeMotor = hardwareMap.get(DcMotor.class, "intakeMotor"); // EH Port 0
@@ -44,7 +44,8 @@ public class Main extends LinearOpMode {
             boolean left_bumper = gamepad1.left_bumper; // Intake
             boolean right_bumper = gamepad1.right_bumper; // Reverse Intake
 
-             boolean right_trigger = gamepad1.right_trigger_pressed; // Shooting Functionality
+            boolean right_trigger = gamepad1.right_trigger_pressed; // Shooter
+            boolean left_trigger = gamepad1.left_trigger_pressed; // Reverse Shooter
 
             /* -------------------- Robot Motion -------------------- */
             double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
@@ -60,13 +61,13 @@ public class Main extends LinearOpMode {
 
             /* -------------------- Intake Mechanism --------------------  */
             if (left_bumper) {
-                leftIntakeServo.setPower(1);
-                rightIntakeServo.setPower(1);
+                leftIntakeServo.setPower(-1);
+                rightIntakeServo.setPower(-1);
                 intakeMotor.setPower(1);
 
             } else if (right_bumper) {
-                leftIntakeServo.setPower(-1);
-                rightIntakeServo.setPower(-1);
+                leftIntakeServo.setPower(1);
+                rightIntakeServo.setPower(1);
                 intakeMotor.setPower(-1);
 
             } else {
@@ -78,9 +79,12 @@ public class Main extends LinearOpMode {
 
             /* -------------------- Ramp Intake Mechanism -------------------- */
             if (right_trigger) {
-                rampIntakeServo.setPower(1);
+                rampIntakeServo.setPower(-1);
                 flywheelMotor.setPower(1);
 
+            } else if (left_trigger) {
+                rampIntakeServo.setPower(1);
+                flywheelMotor.setPower(-1);
             } else {
                 rampIntakeServo.setPower(0);
                 flywheelMotor.setPower(0);
