@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@Autonomous(name = "Basic Auto", group = "Linear OpMode")
+@Autonomous(name = "27672_BioBuzz_Auto")
 public class Auto extends LinearOpMode {
 
     private DcMotor frontLeftMotor;
