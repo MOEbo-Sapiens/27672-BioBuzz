@@ -16,10 +16,10 @@ public class Auto extends LinearOpMode {
     @Override
     public void runOpMode() {
         // 1. Initialize hardware using your exact configuration names
-        frontLeftMotor  = hardwareMap.get(DcMotor.class, "frontLeftMotor");  // CH Port 0
-        backLeftMotor   = hardwareMap.get(DcMotor.class, "backLeftMotor");   // CH Port 1
-        frontRightMotor = hardwareMap.get(DcMotor.class, "frontRightMotor"); // CH Port 2
-        backRightMotor  = hardwareMap.get(DcMotor.class, "backRightMotor");  // CH Port 3
+        frontLeftMotor  = hardwareMap.get(DcMotor.class, "frontLeftMotor");
+        backLeftMotor   = hardwareMap.get(DcMotor.class, "backLeftMotor");
+        frontRightMotor = hardwareMap.get(DcMotor.class, "frontRightMotor");
+        backRightMotor  = hardwareMap.get(DcMotor.class, "backRightMotor");
 
         // 2. Reverse the left side so positive power moves all four wheels forward
         frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
